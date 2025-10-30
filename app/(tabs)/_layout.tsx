@@ -1,6 +1,6 @@
-import React from 'react';
-import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
 
 export default function TabLayout() {
   return (
@@ -8,6 +8,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: '#E50914',
         tabBarInactiveTintColor: 'gray',
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: '#141414',
           borderTopColor: '#333',
@@ -47,6 +48,17 @@ export default function TabLayout() {
           ),
         }}
       />
+       <Tabs.Screen
+      name="play"
+      options={{
+        title: 'Play',
+        tabBarIcon: ({ color, focused }) => (
+          <Ionicons name={focused ? 'play-circle' : 'play-circle-outline'} color={color} size={24} />
+        ),
+      }}
+    />
     </Tabs>
+   
+
   );
 }

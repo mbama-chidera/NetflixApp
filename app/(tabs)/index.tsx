@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '../../components/Header';
 import { Link } from 'expo-router';
 import React from 'react';
 import {
@@ -58,7 +58,7 @@ export default function HomeScreen() {
             <Text style={styles.featuredTitle}>{featuredShow.title}</Text>
             <Text style={styles.featuredDescription}>{featuredShow.description}</Text>
             <View style={styles.featuredButtons}>
-              <Link href="/tabs/play" style={[styles.staticButton, styles.playButton]}>
+              <Link href="/(tabs)/play" style={[styles.staticButton, styles.playButton]}>
                 <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={styles.staticButtonText}>Play</Text>
                 </TouchableOpacity>
