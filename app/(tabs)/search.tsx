@@ -1,14 +1,14 @@
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-  StatusBar,
   Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import Header from '../../components/Header';
 
 interface Show {
@@ -57,14 +57,14 @@ export default function SearchScreen() {
         {/* Top Searches */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Top Searches</Text>
-          <View style={styles.showsGrid}>
+          <View>
             {trendingShows.map((show) => (
-              <View key={show.id} style={styles.showCard}>
-                <Image source={{ uri: show.image }} style={styles.showImage} />
-                <View style={styles.showInfo}>
-                  <Text style={styles.showTitle} numberOfLines={1}>{show.title}</Text>
-                  <Text style={styles.showCategory}>{show.category}</Text>
-                </View>
+              <View key={show.id} style={styles.searchRow}>
+                <Image source={{ uri: show.image }} style={styles.searchThumb} />
+
+                <Text style={styles.searchTitle} numberOfLines={1}>{show.title}</Text>
+
+                <MaterialCommunityIcons name="play-circle-outline" size={36} color="white" style={styles.playIcon} />
               </View>
             ))}
           </View>
@@ -127,31 +127,40 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   showsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-  showCard: {
-    width: '48%',
-    marginBottom: 16,
-  },
-  showImage: {
+    flex: 1,
     width: '100%',
-    height: 180,
+    height: 60,
     borderRadius: 8,
     marginBottom: 8,
   },
-  showInfo: {
-    paddingHorizontal: 4,
+  searchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.04)',
+  },
+  searchThumb: {
+    width: 90,
+    height: 60,
+    borderRadius: 6,
+    marginRight: 12,
+  },
+  searchTitle: {
+    flex: 1,
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  playIcon: {
+    marginLeft: 12,
   },
   showTitle: {
+    flex: 1,
     color: 'white',
     fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 4,
-  },
-  showCategory: {
-    color: '#999',
-    fontSize: 12,
-  },
+  }
 });
