@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { View, Text, FlatList, StyleSheet, Image } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import type { CategoryKey } from "./CategorySelect";
 
 type Episode = { id: string; season: number; episode: number; title: string; duration?: string };
